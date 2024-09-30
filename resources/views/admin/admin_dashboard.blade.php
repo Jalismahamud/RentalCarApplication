@@ -19,17 +19,24 @@ License: For each use you must have a valid license purchased only from above li
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+    <title>Admin Dashboard</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="{{ asset('https://fonts.googleapis.com') }}">
     <link rel="preconnect" href="{{ asset('https://fonts.gstatic.com') }}" crossorigin>
+
+    {{-- Toaster css link --}}
     <link href="{{ asset('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap') }}"
         rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
 
     <!-- End fonts -->
 
+    {{-- data table --}}
+    <link rel="stylesheet" href="{{asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css')}}">
+     
     <!-- core:css -->
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
     <!-- endinject -->
@@ -49,29 +56,6 @@ License: For each use you must have a valid license purchased only from above li
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
 
-     <style>
-        .toastr {
-    background-color: #333; /* Default background */
-    color: #fff; /* Default text color */
-}
-
-.toastr-success {
-    background-color: #28a745; /* Green for success */
-}
-
-.toastr-error {
-    background-color: #dc3545; /* Red for error */
-}
-
-.toastr-warning {
-    background-color: #ffc107; /* Yellow for warning */
-}
-
-.toastr-info {
-    background-color: #17a2b8; /* Blue for info */
-}
-
-     </style>
 </head>
 
 <body>
@@ -121,10 +105,14 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
     <!-- End custom js for this page -->
 
-
+   
+    {{-- data table --}}
+    <script src="{{asset('backend/assets/js/data-table.js')}}"></script>
+    <script src="{{asset('backend/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
 
     {{-- toaster --}}
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')}}"></script>
 
     <script>
         @if(Session::has('message'))
@@ -147,7 +135,10 @@ License: For each use you must have a valid license purchased only from above li
             }
         @endif 
     </script>
-
+ 
+ {{-- swit aleart --}}
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ <script src="{{ asset('backend/assets/code/code.js') }}"></script>
     
 </body>
 
