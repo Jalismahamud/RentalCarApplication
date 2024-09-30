@@ -26,7 +26,8 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="preconnect" href="{{ asset('https://fonts.gstatic.com') }}" crossorigin>
     <link href="{{ asset('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap') }}"
         rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+
     <!-- End fonts -->
 
     <!-- core:css -->
@@ -47,6 +48,30 @@ License: For each use you must have a valid license purchased only from above li
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
+
+     <style>
+        .toastr {
+    background-color: #333; /* Default background */
+    color: #fff; /* Default text color */
+}
+
+.toastr-success {
+    background-color: #28a745; /* Green for success */
+}
+
+.toastr-error {
+    background-color: #dc3545; /* Red for error */
+}
+
+.toastr-warning {
+    background-color: #ffc107; /* Yellow for warning */
+}
+
+.toastr-info {
+    background-color: #17a2b8; /* Blue for info */
+}
+
+     </style>
 </head>
 
 <body>
@@ -102,27 +127,27 @@ License: For each use you must have a valid license purchased only from above li
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-     @if(Session::has('message'))
-     var type = "{{ Session::get('alert-type','info') }}"
-     switch(type){
-        case 'info':
-        toastr.info(" {{ Session::get('message') }} ");
-        break;
-    
-        case 'success':
-        toastr.success(" {{ Session::get('message') }} ");
-        break;
-    
-        case 'warning':
-        toastr.warning(" {{ Session::get('message') }} ");
-        break;
-    
-        case 'error':
-        toastr.error(" {{ Session::get('message') }} ");
-        break; 
-     }
-     @endif 
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            var message = "{{ Session::get('message') }}";
+
+            switch(type) {
+                case 'info':
+                    toastr.info(message);
+                    break;
+                case 'success':
+                    toastr.success(message);
+                    break;
+                case 'warning':
+                    toastr.warning(message);
+                    break;
+                case 'error':
+                    toastr.error(message);
+                    break;
+            }
+        @endif 
     </script>
+
     
 </body>
 

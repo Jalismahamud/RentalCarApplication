@@ -117,11 +117,4 @@
         </div>
     </div>
 
-    {{-- <script>
-        $(document).ready(function() {
-            $('image')
-        }
-         
-    
-    </script> --}}
 @endsection
