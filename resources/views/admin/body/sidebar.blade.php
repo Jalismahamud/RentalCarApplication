@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Ride<span>Revolution</span></span>
+            Find<span>Home</span></span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -19,10 +19,13 @@
                 </a>
             </li>
             <li class="nav-item nav-category">RealEastet</li>
+
+
+            {{-- Property Type Section --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button"
                     aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="home"></i>
                     <span class="link-title">Property Type</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -32,11 +35,46 @@
                             <a href="{{route('all.types')}}" class="nav-link">All Type</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Add Type</a>
+                            <a href="{{route('add.type')}}" class="nav-link">Add Type</a>
                         </li>              
                     </ul>
                 </div>
             </li>
+            
+
+            {{-- Aminities section --}}
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button"
+                    aria-expanded="false" aria-controls="emails">
+                    <i class="link-icon" data-feather="wifi"></i>
+                    <span class="link-title">Aminites</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="emails">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{route('all.aminities')}}" class="nav-link">All Aminities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('add.aminities')}}" class="nav-link">Add Aminities</a>
+                        </li>              
+                    </ul>
+                </div>
+            </li>
+         
+
+
+
+
+
+
+
+
+
+
+
+
             <li class="nav-item">
                 <a href="pages/apps/chat.html" class="nav-link">
                     <i class="link-icon" data-feather="message-square"></i>

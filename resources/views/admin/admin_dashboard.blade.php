@@ -139,6 +139,7 @@ License: For each use you must have a valid license purchased only from above li
  {{-- swit aleart --}}
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
  <script src="{{ asset('backend/assets/code/code.js') }}"></script>
+ <script src="{{ asset('backend/assets/code/validate.min.js') }}"></script>
     
 </body>
 

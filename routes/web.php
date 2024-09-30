@@ -4,18 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\Backend\AminitiesController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,7 +38,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
    Route::post('admin/update/password',[AdminController::class,'adminUpdatePassword'])->name('admin.update.password');
 });
 
-
+// ProperType Routes
 Route::middleware(['auth','role:admin'])->group(function(){
   Route::controller(PropertyTypeController::class)->group(function(){
      Route::get('all/type','allType')->name('all.types');
@@ -55,9 +47,22 @@ Route::middleware(['auth','role:admin'])->group(function(){
      Route::get('edit/type/{id}','editType')->name('edit.type');
      Route::post('update/type/{id}','updateType')->name('update.type');
      Route::get('delete/type/{id}','deleteType')->name('delete.type');
-     Route::get('delete/type/{id}','deleteType')->name('delete.type');
   });
 });
+
+// Aminities Routes
+Route::middleware(['auth','role:admin'])->group(function(){ 
+    Route::controller(AminitiesController::class)->group(function(){
+       Route::get('/all/aminities','allAminities')->name('all.aminities');
+       Route::get('/add/aminities','addAminities')->name('add.aminities');
+       Route::post('/store/aminities','storeAminities')->name('store.aminities');
+       Route::get('edit/aminities/{id}','editAminities')->name('edit.aminities');
+       Route::post('/update/aminities/{id}','updateAminities')->name('update.aminities');
+       Route::get('delete/aminities/{id}','deleteAminities')->name('delete.aminities');
+    });
+});
+
+
 
 Route::get('/admin/login',[AdminController::class,'adminLogin'])->name('admin.login');
 

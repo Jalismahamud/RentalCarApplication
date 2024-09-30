@@ -41,10 +41,9 @@ class PropertyTypeController extends Controller
     }
 
     public function updateType(Request $request, $id) {
-        // Find the property type by ID or fail
+      
         $propertyType = PropertyType::findOrFail($id);
     
-        // Update the property type
         $propertyType->update([
             'type_name' => $request->type_name,
             'type_icon' => $request->type_icon

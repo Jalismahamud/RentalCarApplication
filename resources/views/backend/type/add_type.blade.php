@@ -18,7 +18,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="exampleInputUsername1" class="form-label">Type Name</label>
-                                    <input type="text" name="type_name" placeholder=" Property Type Name" class="form-control"
+                                    <input type="text" name="type_name" placeholder="Property Type Name" class="form-control"
                                         @error('type_name')
                                       is-invalid @enderror
                                         id="type_name" autocomplete="off">
@@ -39,10 +39,7 @@
                                     @enderror
                                 </div>
 
-
-                               
-
-                                <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                                <button type="submit" class="btn btn-primary me-2">Add Property</button>
 
                             </form>
                         </div>
